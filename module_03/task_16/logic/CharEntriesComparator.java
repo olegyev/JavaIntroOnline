@@ -3,7 +3,7 @@ package by.yevstratyev.java_intro.module_03.task_16.logic;
 import java.util.Comparator;
 
 public class CharEntriesComparator implements Comparator<String> {
-    char target;
+    private char target;
 
     public CharEntriesComparator(char target) {
         this.target = target;
@@ -24,14 +24,14 @@ public class CharEntriesComparator implements Comparator<String> {
     }
 
     private int countTargetEntries(String string) {
-        int entriesNum = 0;
+        int entriesCounter = 0;
 
         for (int i = 0; i < string.length(); i++) {
             if (string.charAt(i) == target) {
-                entriesNum++;
+                entriesCounter++;
             }
         }
 
-        return entriesNum;
+        return entriesCounter;
     }
 }

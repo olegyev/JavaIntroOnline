@@ -13,7 +13,7 @@ public class ParagraphSorter {
         Pattern newline = Pattern.compile("\\n");
         String[] paragraphs = newline.split(text.getContent());
 
-        shell(paragraphs, countSentences(paragraphs));
+        sortParagraphs(paragraphs, countSentences(paragraphs));
 
         StringBuilder result = new StringBuilder();
         for (String paragraph : paragraphs) {
@@ -26,7 +26,7 @@ public class ParagraphSorter {
     }
 
     private static int[] countSentences(String[] paragraphs) {
-        int[] sentencesCount = new int[paragraphs.length];
+        int[] sentencesNums = new int[paragraphs.length];
         int counter = 0;
 
         Pattern sentenceEnd = Pattern.compile("[.?!]+(\\s+|$)");
@@ -36,26 +36,26 @@ public class ParagraphSorter {
             while (matcher.find()) {
                 counter++;
             }
-            sentencesCount[i] = counter;
+            sentencesNums[i] = counter;
             counter = 0;
         }
 
-        return sentencesCount;
+        return sentencesNums;
     }
 
-    private static void shell(String[] paragraphs, int[] sentencesCounter) {
-        for (int step = sentencesCounter.length / 2; step >= 1; step /= 2) {
+    private static void sortParagraphs(String[] paragraphs, int[] sentencesNums) {
+        for (int step = sentencesNums.length / 2; step >= 1; step /= 2) {
             for (int inc = 0; inc < step; inc++) {
-                for (int i = inc; i < sentencesCounter.length - step; i += step) {
+                for (int i = inc; i < sentencesNums.length - step; i += step) {
                     for (int j = i + step; j - step >= 0; j -= step) {
-                        if (sentencesCounter[j] < sentencesCounter[j - step]) {
-                            int indices = sentencesCounter[j];
-                            sentencesCounter[j] = sentencesCounter[j - step];
-                            sentencesCounter[j - step] = indices;
+                        if (sentencesNums[j] < sentencesNums[j - step]) {
+                            int index = sentencesNums[j];
+                            sentencesNums[j] = sentencesNums[j - step];
+                            sentencesNums[j - step] = index;
 
-                            String sentences = paragraphs[j];
+                            String sentence = paragraphs[j];
                             paragraphs[j] = paragraphs[j - step];
-                            paragraphs[j - step] = sentences;
+                            paragraphs[j - step] = sentence;
                         } else {
                             break;
                         }

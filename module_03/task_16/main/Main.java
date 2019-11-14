@@ -47,12 +47,14 @@ public class Main {
         Text sortedWords = words.sort(text);
         view.print(sortedWords);
 
-        // Класс LexemeSorter сортирует лексемы из каждого предложения по убыванию количества вхождений заданного символа,
-        // а в случае равенства - по алфавиту.
+        // Класс LexemeSorter сортирует лексемы из каждого предложения по убыванию количества вхождений заданного символа
+        // (алгоритм чувствителен к регистру), а в случае равенства - по алфавиту (вне зависимости от регистра).
         System.out.println("\nLexemes of every sentence sorted in descending order according to the number of char entries, " +
                 "as well as in the alphabetical order:");
         LexemeSorter lexemes = new LexemeSorter();
-        Text sortedLexemes = lexemes.sort(text, 'a');
+        char target = 'a';
+        Text sortedLexemes = lexemes.sort(text, target);
+        System.out.println("Target = '" + target +"'.");
         view.print(sortedLexemes);
     }
 }

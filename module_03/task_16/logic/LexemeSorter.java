@@ -15,31 +15,31 @@ public class LexemeSorter {
         Pattern newSentence = Pattern.compile("[.?!]+(\\s+|$)");
         String[] sentences = newSentence.split(text.getContent());
 
-        List<String> words;
+        List<String> lexemes;
         StringBuilder result = new StringBuilder();
         for (String sentence : sentences) {
-            words = sortWords(sentence, target);
-            for (int i = 0; i < words.size() - 1; i++) {
-                result.append(words.get(i)).append(" ");
+            lexemes = sortLexemes(sentence, target);
+            for (int i = 0; i < lexemes.size() - 1; i++) {
+                result.append(lexemes.get(i)).append(" ");
             }
-            result.append(words.get(words.size() - 1));
+            result.append(lexemes.get(lexemes.size() - 1));
             result.append("\n");
         }
 
         sentences = null;
-        words = null;
+        lexemes = null;
 
         return new Text(result.toString());
     }
 
-    private static List<String> sortWords (String sentence, char target) {
-        List<String> words = new ArrayList<String>();
+    private static List<String> sortLexemes(String sentence, char target) {
+        List<String> lexemes = new ArrayList<String>();
         Pattern letters = Pattern.compile("[a-zA-z&&[^_]]+");
         Matcher matcher = letters.matcher(sentence);
         while (matcher.find()) {
-            words.add(sentence.substring(matcher.start(), matcher.end()));
+            lexemes.add(sentence.substring(matcher.start(), matcher.end()));
         }
-        words.sort(new CharEntriesComparator(target));
-        return words;
+        lexemes.sort(new CharEntriesComparator(target));
+        return lexemes;
     }
 }
