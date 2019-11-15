@@ -32,7 +32,7 @@ public class LexemeSorter {
         return new Text(result.toString());
     }
 
-    private static List<String> sortLexemes(String sentence, char target) {
+    private List<String> sortLexemes(String sentence, char target) {
         List<String> lexemes = new ArrayList<String>();
         Pattern letters = Pattern.compile("[a-zA-z&&[^_]]+");
         Matcher matcher = letters.matcher(sentence);

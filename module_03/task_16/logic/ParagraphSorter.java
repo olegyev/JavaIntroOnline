@@ -25,7 +25,7 @@ public class ParagraphSorter {
         return new Text(result.toString());
     }
 
-    private static int[] countSentences(String[] paragraphs) {
+    private int[] countSentences(String[] paragraphs) {
         int[] sentencesNums = new int[paragraphs.length];
         int counter = 0;
 
@@ -43,7 +43,7 @@ public class ParagraphSorter {
         return sentencesNums;
     }
 
-    private static void sortParagraphs(String[] paragraphs, int[] sentencesNums) {
+    private void sortParagraphs(String[] paragraphs, int[] sentencesNums) {
         for (int step = sentencesNums.length / 2; step >= 1; step /= 2) {
             for (int inc = 0; inc < step; inc++) {
                 for (int i = inc; i < sentencesNums.length - step; i += step) {

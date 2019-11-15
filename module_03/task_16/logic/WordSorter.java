@@ -32,7 +32,7 @@ public class WordSorter {
         return new Text(result.toString());
     }
 
-    private static List<String> sortWords (String sentence) {
+    private List<String> sortWords (String sentence) {
         List<String> words = new ArrayList<String>();
         Pattern letters = Pattern.compile("[a-zA-z&&[^_]]+");
         Matcher matcher = letters.matcher(sentence);
