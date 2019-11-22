@@ -10,11 +10,12 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task45 {
     public static void main(String[] args) {
-        int numOne = generateRandomNum();
-        int numTwo = generateRandomNum();
+        Task45 solution = new Task45();
+        int numOne = solution.generateRandomNum();
+        int numTwo = solution.generateRandomNum();
 
-        int[] numsLength = calcNumOfDigits(numOne, numTwo);
-        int longerNum = compareLength(numsLength);
+        int[] numsLength = solution.calcNumOfDigits(numOne, numTwo);
+        int longerNum = solution.compareLength(numsLength);
 
         if (longerNum == 1) {
             System.out.println(numOne + " has " + numsLength[0] + " digits and this is more than " + numTwo + " with " + numsLength[1] + " digits.");
@@ -26,11 +27,11 @@ public class Task45 {
     }
 
     // От 1 до 1.000.000 включительно.
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (1 + Math.random() * 1_000_000);
     }
 
-    public static int[] calcNumOfDigits(int numOne, int numTwo) {
+    public int[] calcNumOfDigits(int numOne, int numTwo) {
         final int ARRAY_LENGTH = 2;
         int[] digitsCountArray = new int[ARRAY_LENGTH];
         int num;
@@ -54,7 +55,7 @@ public class Task45 {
         return digitsCountArray;
     }
 
-    public static int compareLength(int[] numOfDigits) {
+    public int compareLength(int[] numOfDigits) {
         if (numOfDigits[0] > numOfDigits[1]) {
             return 1;
         } else if (numOfDigits[0] < numOfDigits[1]) {

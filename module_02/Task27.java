@@ -15,6 +15,7 @@ public class Task27 {
         int arrayOneLength;
         int arrayTwoLength;
         int k;
+        Task27 solution = new Task27();
 
         do {
             arrayOneLength = (int) (2 + Math.random() * 9); // от 2 до 10 включительно
@@ -26,10 +27,10 @@ public class Task27 {
         System.out.println("k = " + k);
 
         System.out.println("Array one:");
-        int[] arrayOne = fillAndPrintArray(arrayOneLength);
+        int[] arrayOne = solution.fillAndPrintArray(arrayOneLength);
 
         System.out.println("\nArray two:");
-        int[] arrayTwo = fillAndPrintArray(arrayTwoLength);
+        int[] arrayTwo = solution.fillAndPrintArray(arrayTwoLength);
 
         // Основная логика.
         int[] resultingArray = new int[arrayOneLength + arrayTwoLength];
@@ -49,7 +50,7 @@ public class Task27 {
         }
     }
 
-    private static int[] fillAndPrintArray(int arrayLength) {
+    private int[] fillAndPrintArray(int arrayLength) {
         int[] array = new int[arrayLength];
         for (int i = 0; i < arrayLength; i++) {
             array[i] = (int) (Math.random() * 21) - 10; // от -10 до 10 включительно

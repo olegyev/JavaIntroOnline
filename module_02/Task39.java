@@ -12,21 +12,22 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task39 {
     public static void main(String[] args) {
-        int[] array = generateRandomArray();
-        printRandomArray(array);
+        Task39 solution = new Task39();
+        int[] array = solution.generateRandomArray();
+        solution.printRandomArray(array);
 
         try {
-            int resultOne = findSecondLargestNumber(array);
+            int resultOne = solution.findSecondLargestNumber(array);
             System.out.println("Second largest number = " + resultOne);
 
-            int resultTwo = findSecondLargestNumberWithSort(array);
+            int resultTwo = solution.findSecondLargestNumberWithSort(array);
             System.out.println("Second largest number with sort = " + resultTwo);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
 
-    public static int[] generateRandomArray() {
+    public int[] generateRandomArray() {
         final int N = (int) (2 + (Math.random() * 9)); // от 2 до 10 включительно
         int[] array = new int[N];
 
@@ -36,7 +37,7 @@ public class Task39 {
         return array;
     }
 
-    public static void printRandomArray(int[] array) {
+    public void printRandomArray(int[] array) {
         System.out.println("Initial numbers:");
         for (int element : array) {
             System.out.print(element + " | ");
@@ -44,7 +45,7 @@ public class Task39 {
         System.out.println();
     }
 
-    public static int findSecondLargestNumber(int[] array) throws Exception {
+    public int findSecondLargestNumber(int[] array) throws Exception {
         int maxNumber = Integer.MIN_VALUE;
         boolean areEquals = true;
 
@@ -65,7 +66,7 @@ public class Task39 {
         }
     }
 
-    public static int findSecondLargestNumberWithSort(int[] array) throws Exception {
+    public int findSecondLargestNumberWithSort(int[] array) throws Exception {
         boolean areEquals = true;
 
         for (int step = array.length / 2; step >= 1; step /= 2) {
@@ -95,7 +96,7 @@ public class Task39 {
         }
     }
 
-    private static int findPreMaxNumber(int[] array, int maxNumber) {
+    private int findPreMaxNumber(int[] array, int maxNumber) {
         int preMaxNumber = Integer.MIN_VALUE;
 
         for (int element : array) {
@@ -107,7 +108,7 @@ public class Task39 {
         return preMaxNumber;
     }
 
-    private static int findPreMaxNumberWithSort(int[] array) {
+    private int findPreMaxNumberWithSort(int[] array) {
         int i = 0;
         int preMaxNumber;
 

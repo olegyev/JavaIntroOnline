@@ -13,16 +13,17 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task42 {
     public static void main(String[] args) {
-        int[] array = generateRandomArray();
-        int k = generateRandomStartIndex(array);
-        printArray(array);
+        Task42 solution = new Task42();
+        int[] array = solution.generateRandomArray();
+        int k = solution.generateRandomStartIndex(array);
+        solution.printArray(array);
 
-        int sum = calcElementsSum(array, k);
+        int sum = solution.calcElementsSum(array, k);
 
-        System.out.printf("Sum of elements with indices %d-%d-%d is %d", k, k + 1, k + 2, sum);
+        System.out.printf("Sum of elements with indices %d-%d-%d is %d.", k, k + 1, k + 2, sum);
     }
 
-    public static int[] generateRandomArray() {
+    public int[] generateRandomArray() {
         final int ARRAY_LENGTH = (int) (3 + Math.random() * 8); // от 3 до 10 включительно
         int[] array = new int[ARRAY_LENGTH];
 
@@ -33,11 +34,11 @@ public class Task42 {
         return array;
     }
 
-    public static int generateRandomStartIndex(int[] array) {
+    public int generateRandomStartIndex(int[] array) {
         return (int) (Math.random() * (array.length - 2)); // от 0 до n-2 включительно
     }
 
-    public static void printArray(int[] array) {
+    public void printArray(int[] array) {
         System.out.println("Array numbers:");
         for (int element : array) {
             System.out.print(element + " | ");
@@ -45,7 +46,7 @@ public class Task42 {
         System.out.println();
     }
 
-    public static int calcElementsSum(int[] array, int k) {
+    public int calcElementsSum(int[] array, int k) {
         int sum = 0;
         int m = k + 2;
 

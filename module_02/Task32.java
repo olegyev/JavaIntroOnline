@@ -34,12 +34,13 @@ public class Task32 {
             arrayCopy[i] = array[i];
         }
 
-        shellSort(array);
-        taskSort(arrayCopy);
+        Task32 solution = new Task32();
+        solution.shellSort(array);
+        solution.taskSort(arrayCopy);
     }
 
     // Сортировка Шелла с шагом d(1) = n/2, d(i) = d(i-1)/2, d(k) = 1.
-   public static void shellSort(double[] array) {
+   public void shellSort(double[] array) {
         BigDecimal a;
         BigDecimal b;
 
@@ -70,7 +71,7 @@ public class Task32 {
     }
 
     // Сортировка в соответствии с условием задачи.
-    public static void taskSort(double[] array) {
+    public void taskSort(double[] array) {
         BigDecimal a;
         BigDecimal b;
 

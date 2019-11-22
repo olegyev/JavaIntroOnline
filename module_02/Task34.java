@@ -25,11 +25,12 @@ public class Task34 {
             System.out.print(numArray[i] + "/" + denArray[i] + " | ");
         }
 
+        Task34 solution = new Task34();
         for (int i = 0; i + 1 < N; i++) {
             if (i == 0) {
-                lcm = calcLcm(denArray[i], denArray[i + 1]);
+                lcm = solution.calcLcm(denArray[i], denArray[i + 1]);
             } else {
-                lcm = calcLcm(lcm, denArray[i + 1]);
+                lcm = solution.calcLcm(lcm, denArray[i + 1]);
             }
         }
 
@@ -68,12 +69,12 @@ public class Task34 {
     }
 
     // Least Common Multiple.
-    private static int calcLcm(int a, int b) {
+    private int calcLcm(int a, int b) {
         return a / calcGcd(a, b) * b;
     }
 
     // Greatest Common Divisor.
-    private static int calcGcd(int a, int b) {
+    private int calcGcd(int a, int b) {
         return b == 0 ? a : calcGcd(b,a % b);
     }
 }

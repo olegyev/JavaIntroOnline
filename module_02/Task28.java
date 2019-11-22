@@ -12,16 +12,17 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task28 {
     public static void main(String[] args) {
+        Task28 solution = new Task28();
         final int ARRAY_ONE_LENGTH = (int) (2 + Math.random() * 9); // от 2 до 10 включительно
         final int ARRAY_TWO_LENGTH = (int) (2 + Math.random() * 9); // от 2 до 10 включительно
 
-        int[] arrayOne = fillArray(ARRAY_ONE_LENGTH);
+        int[] arrayOne = solution.fillArray(ARRAY_ONE_LENGTH);
         System.out.println("Array one:");
-        printArray(arrayOne);
+        solution.printArray(arrayOne);
 
-        int[] arrayTwo = fillArray(ARRAY_TWO_LENGTH);
+        int[] arrayTwo = solution.fillArray(ARRAY_TWO_LENGTH);
         System.out.println("\nArray two:");
-        printArray(arrayTwo);
+        solution.printArray(arrayTwo);
 
         int[] resultingArray = new int[ARRAY_ONE_LENGTH + ARRAY_TWO_LENGTH];
 
@@ -43,10 +44,10 @@ public class Task28 {
         }
 
         System.out.println("\nResulting array:");
-        printArray(resultingArray);
+        solution.printArray(resultingArray);
     }
 
-    private static int[] fillArray(final int ARRAY_LENGTH) {
+    private int[] fillArray(final int ARRAY_LENGTH) {
         int[] array = new int[ARRAY_LENGTH];
         for (int i = 0; i < ARRAY_LENGTH; i++) {
             int num = (int) (Math.random() * 21) - 10; // от -10 до 10 включительно
@@ -61,7 +62,7 @@ public class Task28 {
         return array;
     }
 
-    private static void printArray(int[] array) {
+    private void printArray(int[] array) {
         for (int i : array) {
             System.out.print(i + " | ");
         }

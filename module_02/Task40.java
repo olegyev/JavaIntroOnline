@@ -17,6 +17,7 @@ public class Task40 {
         int a;
         int b;
         int c;
+        Task40 solution = new Task40();
 
         System.out.println("Please enter three whole numbers:");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
@@ -32,7 +33,7 @@ public class Task40 {
             if (a == 0 && b == 0 && c == 0) {
                 System.out.println("All numbers are equal to zero. Unable to find Greatest Common Divisor.");
             } else {
-                boolean result = areCoprime(a, b, c);
+                boolean result = solution.areCoprime(a, b, c);
                 if (result) {
                     System.out.printf("Numbers %d, %d, %d are co-prime.", a, b, c);
                 } else {
@@ -47,7 +48,7 @@ public class Task40 {
         }
     }
 
-    public static boolean areCoprime(int a, int b, int c) {
+    public boolean areCoprime(int a, int b, int c) {
         int gcd = Math.abs(a);
         for (int i = 1; i < 3; i++) {
             gcd = calcGcd(gcd, Math.abs(b));
@@ -56,7 +57,7 @@ public class Task40 {
         return gcd == 1;
     }
 
-    private static int calcGcd(int a, int b) {
+    private int calcGcd(int a, int b) {
         return b == 0 ? a : calcGcd(b, a % b);
     }
 }

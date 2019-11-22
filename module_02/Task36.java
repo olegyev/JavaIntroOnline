@@ -28,7 +28,8 @@ public class Task36 {
                 }
             }
 
-            int gcd = calcMultGcd(fourNumsArray);
+            Task36 solution = new Task36();
+            int gcd = solution.calcMultGcd(fourNumsArray);
 
             System.out.print("Greatest Common Divisor of ");
             for (int i = 0; i < N; i++) {
@@ -46,7 +47,7 @@ public class Task36 {
         }
     }
 
-    public static int calcMultGcd(int[] array) {
+    public int calcMultGcd(int[] array) {
         int gcd = array[0];
         for (int i = 1; i < array.length; i++) {
             gcd = calcGcd(gcd, array[i]);
@@ -54,7 +55,7 @@ public class Task36 {
         return gcd;
     }
 
-    private static int calcGcd(int a, int b) {
+    private int calcGcd(int a, int b) {
         return b == 0 ? a : calcGcd(b, a % b);
     }
 }

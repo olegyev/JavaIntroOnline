@@ -11,21 +11,22 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task37 {
     public static void main(String[] args) {
-        int a = generateRandomNum();
-        double area = calcHexagonArea(a);
+        Task37 solution = new Task37();
+        int a = solution.generateRandomNum();
+        double area = solution.calcHexagonArea(a);
 
         System.out.println("a = " + a + "\nHexagon area is " + Math.round(area * 1000d) / 1000d);
     }
 
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (1 + (Math.random() * 100)); // от 1 до 100 включительно
     }
 
-    public static double calcHexagonArea(int a) {
+    public double calcHexagonArea(int a) {
         return 6 * calcTriangleArea(a);
     }
 
-    private static double calcTriangleArea(int a) {
+    private double calcTriangleArea(int a) {
         return (a * a * Math.sqrt(3)) / 4;
     }
 }

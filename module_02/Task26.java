@@ -41,10 +41,11 @@ public class Task26 {
     private static boolean isMagic;
 
     public static void main(String[] args) {
+        Task26 solution = new Task26();
         System.out.print("Please enter square size (natural number starting with 3): ");
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            printAllMagicSquaresOnConsole(Integer.parseInt(reader.readLine()));
+            solution.printAllMagicSquaresOnConsole(Integer.parseInt(reader.readLine()));
         } catch (NumberFormatException e) {
             System.err.print("Only whole number can be entered!");
         } catch (IOException e) {
@@ -52,12 +53,12 @@ public class Task26 {
         }
     }
 
-    public static void printAllMagicSquaresOnConsole(int n) {
+    public void printAllMagicSquaresOnConsole(int n) {
         Task26.n = n;
         if (n != 1 && n < 3) {
             System.err.print("Magic squares " + n + "x" + n + " do not exist!");
         } else if (n == 1) {
-            System.err.print("Your \"magic square\" includes only 1");
+            System.err.print("Your \"magic square\" includes only 1.");
         } else {
             magicConstant = (n * ((int) Math.pow(n, 2) + 1)) / 2;
             int[] array = new int[(int) Math.pow(n, 2)];
@@ -70,13 +71,13 @@ public class Task26 {
 
             permuteArrayElements(array, array.length);
 
-            System.out.println("We've found " + magicCounter + " magic squares " + n + "x" + n);
+            System.out.println("We've found " + magicCounter + " magic squares " + n + "x" + n + ".");
         }
     }
 
-    private static void permuteArrayElements(int[] array, int arrayLength) {
+    private void permuteArrayElements(int[] array, int arrayLength) {
         if (arrayLength == 1) {
-            checkForMagic(array);
+            checkIfMagic(array);
         } else {
             for (int i = 0; i < arrayLength - 1; i++) {
                 permuteArrayElements(array, arrayLength - 1);
@@ -90,13 +91,13 @@ public class Task26 {
         }
     }
 
-    private static void swapArrayElements(int[] array, int i, int j) {
+    private void swapArrayElements(int[] array, int i, int j) {
         int tmp = array[i];
         array[i] = array[j];
         array[j] = tmp;
     }
 
-    private static void checkForMagic(int[] array) {
+    private void checkIfMagic(int[] array) {
        checkRows(array);
         if (isMagic) {
             checkColumns(array);
@@ -113,7 +114,7 @@ public class Task26 {
         }
     }
 
-    private static void checkRows(int[] rows) {
+    private void checkRows(int[] rows) {
         for (int k = 0; k <= rows.length - n; k += n) {
             int sum = 0;
             for (int i = k; i < k + n; i++) {
@@ -126,7 +127,7 @@ public class Task26 {
         }
     }
 
-    private static void checkColumns(int[] columns) {
+    private void checkColumns(int[] columns) {
         for (int k = 0; k < n; k++) {
             int sum = 0;
             for (int i = k; i < columns.length; i += n) {
@@ -139,7 +140,7 @@ public class Task26 {
         }
     }
 
-    private static void checkMainDiagonal(int[] mainDiagonal) {
+    private void checkMainDiagonal(int[] mainDiagonal) {
         int sum = 0;
         for (int i = 0; i < mainDiagonal.length; i += n + 1) {
             sum += mainDiagonal[i];
@@ -147,7 +148,7 @@ public class Task26 {
         isMagic = sum == magicConstant;
     }
 
-    private static void checkAntiDiagonal(int[] antiDiagonal) {
+    private void checkAntiDiagonal(int[] antiDiagonal) {
         int sum = 0;
         for (int i = n - 1; i <= n * (n - 1); i += n - 1) {
             sum += antiDiagonal[i];
@@ -155,7 +156,7 @@ public class Task26 {
         isMagic = sum == magicConstant;
     }
 
-    private static void printMagicSquare(int[]array) {
+    private void printMagicSquare(int[]array) {
         int[][] magicSquare = new int[n][n];
         int k = 0;
         for (int i = 0; i < n; i++) {

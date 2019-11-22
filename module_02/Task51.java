@@ -11,9 +11,10 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task51 {
     public static void main(String[] args) {
-        int num = generateRandomNum();
+        Task51 solution = new Task51();
+        int num = solution.generateRandomNum();
         try {
-            int numOfSubtractions = subtractToZero(num);
+            int numOfSubtractions = solution.subtractToZero(num);
             if (numOfSubtractions == 1) {
                 System.out.println("It is " + numOfSubtractions + " subtraction between " + num + " and zero.");
             } else {
@@ -25,11 +26,11 @@ public class Task51 {
     }
 
     // От 0 до 10000 включительно.
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (Math.random() * 10001);
     }
 
-    public static int subtractToZero(int num) throws Exception {
+    public int subtractToZero(int num) throws Exception {
         if (num < 0) {
             throw new Exception("We need to add, not subtract.");
         }
@@ -44,7 +45,7 @@ public class Task51 {
         return counter;
     }
 
-    private static int calcSumOfDigits(int num) {
+    private int calcSumOfDigits(int num) {
         int sum = 0;
 
         while (num > 0) {

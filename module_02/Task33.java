@@ -15,28 +15,29 @@ import java.math.BigDecimal; // Использовал класс BigDecimal д�
 
 public class Task33 {
     public static void main(String[] args) {
-        double[] arrayOne = generateRandomAscendingArray();
+        Task33 solution = new Task33();
+        double[] arrayOne = solution.generateRandomAscendingArray();
         System.out.println("Array one:");
-        printArray(arrayOne);
+        solution.printArray(arrayOne);
 
-        double[] arrayTwo = generateRandomAscendingArray();
+        double[] arrayTwo = solution.generateRandomAscendingArray();
         System.out.println("\nArray two:");
-        printArray(arrayTwo);
+        solution.printArray(arrayTwo);
 
         System.out.println();
 
         System.out.println("\nIndices for every single element of the second array:");
-        findIndexForEverySingleElement(arrayOne, arrayTwo);
+        solution.findIndexForEverySingleElement(arrayOne, arrayTwo);
 
         System.out.println("\nIndices for all elements of the second array in a fully combined array:");
-        findIndexForAllElements(arrayOne, arrayTwo);
+        solution.findIndexForAllElements(arrayOne, arrayTwo);
 
         System.out.println("\nBinary search for every single element of the second array:");
-        binarySearchForEverySingleElement(0, arrayOne.length - 1, arrayOne, arrayTwo, 0);
+        solution.binarySearchForEverySingleElement(0, arrayOne.length - 1, arrayOne, arrayTwo, 0);
     }
 
     // Для каждого элемента второго массива по отдельности.
-    public static void findIndexForEverySingleElement(double[] arrayOne, double[] arrayTwo) {
+    public void findIndexForEverySingleElement(double[] arrayOne, double[] arrayTwo) {
         BigDecimal numArrOne;
         BigDecimal numArrTwo;
         BigDecimal lastNumArrOne;
@@ -64,7 +65,7 @@ public class Task33 {
     }
 
     // Индексы в полностью объединенном массиве для всех элементов второго массива.
-    public static void findIndexForAllElements(double[] arrayOne, double[] arrayTwo) {
+    public void findIndexForAllElements(double[] arrayOne, double[] arrayTwo) {
         BigDecimal numArrOne;
         BigDecimal numArrTwo;
 
@@ -91,7 +92,7 @@ public class Task33 {
     }
 
     // Поиск индексов для каждого элемента второго массива по отдельности с помощью бинарного поиска.
-    public static void binarySearchForEverySingleElement(int first, int last, double[] arrayOne, double[] arrayTwo, int arrayTwoIndex) {
+    public void binarySearchForEverySingleElement(int first, int last, double[] arrayOne, double[] arrayTwo, int arrayTwoIndex) {
         if (arrayTwoIndex == arrayTwo.length) {
             return;
         }
@@ -145,7 +146,7 @@ public class Task33 {
         arrayOneMid = null;
     }
 
-    private static double[] generateRandomAscendingArray() {
+    private double[] generateRandomAscendingArray() {
         final int ARRAY_LENGTH = (int) (2 + Math.random() * 9); // от 2 до 10 включительно
         double[] array = new double[ARRAY_LENGTH];
 
@@ -163,7 +164,7 @@ public class Task33 {
         return array;
     }
 
-    private static void printArray(double[] array) {
+    private void printArray(double[] array) {
         for (double element : array) {
             System.out.print(element + " | ");
         }

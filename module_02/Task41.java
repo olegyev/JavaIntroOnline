@@ -13,8 +13,9 @@ import java.math.BigInteger;
 public class Task41 {
     public static void main(String[] args) {
         final int N = 9;
+        Task41 solution = new Task41();
         try {
-            BigInteger factorialsSum = calcOddFactorialsSum(N);
+            BigInteger factorialsSum = solution.calcOddFactorialsSum(N);
             System.out.println("Result for " + N + " is " + factorialsSum);
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -22,7 +23,7 @@ public class Task41 {
     }
 
     // Использовал BigInteger с расчетом на гипотетическую возможность внесения аргумента > 9.
-    public static BigInteger calcOddFactorialsSum(final int N) throws Exception {
+    public BigInteger calcOddFactorialsSum(final int N) throws Exception {
         if (N < 1) {
             throw new Exception("Only natural number larger than 0 can be entered (factorial for 0 is 1).");
         }
@@ -42,7 +43,7 @@ public class Task41 {
         return factorialsSum;
     }
 
-    private static BigInteger calcFactorialsSum(BigInteger factorial, BigInteger factorialsSum) {
+    private BigInteger calcFactorialsSum(BigInteger factorial, BigInteger factorialsSum) {
         return factorialsSum.add(factorial);
     }
 }

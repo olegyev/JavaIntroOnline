@@ -12,21 +12,22 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task49 {
     public static void main(String[] args) {
-        int n = generateRandomNum();
+        Task49 solution = new Task49();
+        int n = solution.generateRandomNum();
         System.out.println("Ascending sequences for " + n + "-digit numbers:");
         try {
-            findAscendingDigits(n);
+            solution.findAscendingDigits(n);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
 
     // От 2 до 9 разрядов включительно.
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (2 + Math.random() * 8);
     }
 
-    public static void findAscendingDigits(int n) throws Exception {
+    public void findAscendingDigits(int n) throws Exception {
         if (n < 2 || n >= 10) {
             throw new Exception("We can't find ascending sequence for " + n + "-digits number.");
         }
@@ -40,7 +41,7 @@ public class Task49 {
         }
     }
 
-    private static int calcFirstNum(int n) {
+    private int calcFirstNum(int n) {
         int num = 1;
 
         for (int i = 1; i < n; i++) {
@@ -50,7 +51,7 @@ public class Task49 {
         return num;
     }
 
-    private static boolean isAscending(int num) {
+    private boolean isAscending(int num) {
         boolean isAscending = true;
 
         while (num / 10 > 0) {
@@ -64,7 +65,7 @@ public class Task49 {
         return isAscending;
     }
 
-    private static void printAscendingNum(int num) {
+    private void printAscendingNum(int num) {
         System.out.println(num);
     }
 }

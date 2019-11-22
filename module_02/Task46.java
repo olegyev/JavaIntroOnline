@@ -11,24 +11,25 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task46 {
     public static void main(String[] args) {
-        final int K = generateRandomNum();
-        final int N = generateRandomNum();
+        Task46 solution = new Task46();
+        final int K = solution.generateRandomNum();
+        final int N = solution.generateRandomNum();
 
         try {
-            int[] digitsSumArray = createDigitsSumArray(K, N);
+            int[] digitsSumArray = solution.createDigitsSumArray(K, N);
             System.out.println("Result for K = " + K + " and N = " + N + ":");
-            printArray(digitsSumArray);
+            solution.printArray(digitsSumArray);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
 
     // От 1 до 100 включительно.
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (1 + Math.random() * 100);
     }
 
-    public static int[] createDigitsSumArray(final int K, final int N) throws Exception {
+    public int[] createDigitsSumArray(final int K, final int N) throws Exception {
         int index = 0;
         int[] digitsSumArray = new int[index];
 
@@ -56,13 +57,13 @@ public class Task46 {
         return digitsSumArray;
     }
 
-    public static void printArray(int[] array) {
+    public void printArray(int[] array) {
         for (int element : array) {
             System.out.print(element + " | ");
         }
     }
 
-    private static int[] addToArray(int[] oldArray, int lastIndex, int numToAdd) {
+    private int[] addToArray(int[] oldArray, int lastIndex, int numToAdd) {
         int[] newArray = new int[lastIndex + 1];
 
         for (int i = 0; i < oldArray.length; i++) {

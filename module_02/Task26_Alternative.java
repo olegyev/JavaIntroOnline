@@ -23,6 +23,7 @@ import java.io.InputStreamReader;
 public class Task26_Alternative {
     public static void main(String[] args) {
         int n;
+        Task26_Alternative solution = new Task26_Alternative();
         System.out.print("Please enter square size (natural number starting with 3): ");
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
@@ -39,7 +40,7 @@ public class Task26_Alternative {
 
             System.out.println("Here is your magic square: ");
 
-            printMagicSquareOnConsole(n);
+            solution.printMagicSquareOnConsole(n);
 
         } catch (NumberFormatException e) {
             System.err.print("Only whole number can be entered!");
@@ -48,7 +49,7 @@ public class Task26_Alternative {
         }
     }
 
-    public static void printMagicSquareOnConsole(int n) {
+    public void printMagicSquareOnConsole(int n) {
         if (n % 2 != 0) {
             printMagicSquare(createOddMagicSquare(n));
         } else {
@@ -60,7 +61,7 @@ public class Task26_Alternative {
         }
     }
 
-    private static int[][] createOddMagicSquare(int n) {
+    private int[][] createOddMagicSquare(int n) {
         int[][] magicSquare = new int[n][n];
         int i = 0;
         int j = n / 2;
@@ -82,7 +83,7 @@ public class Task26_Alternative {
         return magicSquare;
     }
 
-    private static int[][] createMagicSquareDivisibleByFour(int n) {
+    private int[][] createMagicSquareDivisibleByFour(int n) {
         int[][] magicSquare = new int[n][n];
         int i;
         int j;
@@ -112,7 +113,7 @@ public class Task26_Alternative {
         return magicSquare;
     }
 
-    private static int[][] createEvenMagicSquare(int n) {
+    private int[][] createEvenMagicSquare(int n) {
         int[][] magicSquare = new int[n][n];
         int i;
         int j;
@@ -165,13 +166,13 @@ public class Task26_Alternative {
         return magicSquare;
     }
 
-    private static void swapElements(int a, int b, int c, int d, int[][] magicSquare) {
+    private void swapElements(int a, int b, int c, int d, int[][] magicSquare) {
         int tmp = magicSquare[a][b];
         magicSquare[a][b] = magicSquare[c][d];
         magicSquare[c][d] = tmp;
     }
 
-    private static void printMagicSquare(int[][] magicSquare) {
+    private void printMagicSquare(int[][] magicSquare) {
         for (int i = 0; i < magicSquare.length; i++) {
             for (int j = 0; j < magicSquare.length; j++) {
                 System.out.print(magicSquare[i][j] + " | ");

@@ -12,21 +12,22 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task48 {
     public static void main(String[] args) {
-        long k = generateRandomNum();
+        Task48 solution = new Task48();
+        long k = solution.generateRandomNum();
         System.out.println("Armstrong numbers from 1 to " + k + ":");
         try {
-            findArmstrongNums(k);
+            solution.findArmstrongNums(k);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
 
     // До 9 разрядов - от 1 до 999.999.999 включительно.
-    public static long generateRandomNum() {
+    public long generateRandomNum() {
         return (long) (1 + Math.random() * 999_999_999L);
     }
 
-    public static void findArmstrongNums(long k) throws Exception {
+    public void findArmstrongNums(long k) throws Exception {
         if (k < 1) {
             throw new Exception("Upper number is less than 1.");
         }
@@ -44,7 +45,7 @@ public class Task48 {
         }
     }
 
-    private static boolean isArmstrong(long num , int n) {
+    private boolean isArmstrong(long num , int n) {
         long sum = 0;
         long cutNum = num;
 
@@ -56,7 +57,7 @@ public class Task48 {
         return sum == num;
     }
 
-    private static long raiseToPower(long num, int n) {
+    private long raiseToPower(long num, int n) {
         long raisedNum = num;
 
         for (int i = 1; i < n; i++) {
@@ -66,7 +67,7 @@ public class Task48 {
         return raisedNum;
     }
 
-    private static void printArmstrong(long num) {
+    private void printArmstrong(long num) {
         System.out.println(num);
     }
 }

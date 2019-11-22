@@ -16,6 +16,7 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task31 {
     public static void main(String[] args) {
+        Task31 solution = new Task31();
         // Определение длины массива (от 2 до 10 включительно).
         final int ARRAY_LENGTH = (int) (2 + Math.random() * 9);
         int[] array = new int[ARRAY_LENGTH];
@@ -33,7 +34,7 @@ public class Task31 {
             for (int j = 0; j <= i; j++) {
                 arrayFragment[j] = array[j];
             }
-            int insertIndex = binarySearch(arrayFragment, array[i]);
+            int insertIndex = solution.binarySearch(arrayFragment, array[i]);
             for (int j = insertIndex; j < i; j++) {
                 int tmp = array[j];
                 array[j] = array[i];
@@ -47,7 +48,7 @@ public class Task31 {
         }
     }
 
-    private static int binarySearch(int[] arrayFragment, int key) {
+    private int binarySearch(int[] arrayFragment, int key) {
         int first = 0;
         int last = arrayFragment.length - 1;
 

@@ -12,12 +12,13 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task38 {
     public static void main(String[] args) {
-        int[] coords = generateRandomCoords();
-        printCoords(coords);
-        calcMaxDist(coords);
+        Task38 solution = new Task38();
+        int[] coords = solution.generateRandomCoords();
+        solution.printCoords(coords);
+        solution.calcMaxDist(coords);
     }
 
-    public static int[] generateRandomCoords() {
+    public int[] generateRandomCoords() {
         // Определение количества точек (от 3 до 10 включительно).
         final int N = (int) (3 + Math.random() * 8);
 
@@ -30,7 +31,7 @@ public class Task38 {
         return coords;
     }
 
-    public static void printCoords(int[] coords) {
+    public void printCoords(int[] coords) {
         System.out.println("Number of dots = " + coords.length / 2);
         System.out.print("Dots' coordinates:");
         for (int i = 0, j = 1; i + 1 < coords.length; i += 2, j++) {
@@ -40,7 +41,7 @@ public class Task38 {
     }
 
     // Метод определяет максимальное расстояние.
-    public static void calcMaxDist(int[] coords) {
+    public void calcMaxDist(int[] coords) {
         double maxDist = 0;
         for (int i = 0; i + 1 < coords.length - 2; i += 2) {
             for (int j = i + 2; j + 1 < coords.length; j += 2) {
@@ -54,7 +55,7 @@ public class Task38 {
     }
 
     // Метод выявляет, между какими из пар точек самое большое расстояние.
-    private static void checkDotsForMaxDist(double maxDist, int[] coords) {
+    private void checkDotsForMaxDist(double maxDist, int[] coords) {
         System.out.println("\nGreatest distance is " +  Math.round(maxDist * 1000d) / 1000d);
         System.out.println("Such a distance is between the following dots:");
         for (int i = 0; i + 1 < coords.length - 2; i += 2) {
@@ -68,7 +69,7 @@ public class Task38 {
     }
 
     // Метод выводит эти пары на консоль.
-    private static void printMaxDots(int i, int j, int aX, int aY, int bX, int bY) {
+    private void printMaxDots(int i, int j, int aX, int aY, int bX, int bY) {
         int dotOne = i / 2 + 1;
         int dotTwo = j / 2 + 1;
         System.out.printf("x(%d) = %d\ny(%d) = %d\nx(%d) = %d\ny(%d) = %d", dotOne, aX, dotOne, aY, dotTwo, bX, dotTwo, bY);

@@ -11,12 +11,13 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task50 {
     public static void main(String[] args) {
-        int n = generateRandomNum();
+        Task50 solution = new Task50();
+        int n = solution.generateRandomNum();
 
         try {
-            long oddSum = findOddDigitsNumsSum(n);
+            long oddSum = solution.findOddDigitsNumsSum(n);
             System.out.println("Sum of " + n + "-digits numbers with only odd digits: " + oddSum);
-            int evenDigitsInSum = findEvenDigitsInSum(oddSum);
+            int evenDigitsInSum = solution.findEvenDigitsInSum(oddSum);
             System.out.println("Number of even digits in sum: " + evenDigitsInSum);
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -24,11 +25,11 @@ public class Task50 {
     }
 
     // От 1 до 9 разрядов включительно.
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (1 + Math.random() * 9);
     }
 
-    public static long findOddDigitsNumsSum(int n) throws Exception {
+    public long findOddDigitsNumsSum(int n) throws Exception {
         if (n < 1) {
             throw new Exception("We can't find only odd-digits numbers for " + n + "-digits number.");
         }
@@ -44,7 +45,7 @@ public class Task50 {
         return  oddSum;
     }
 
-    public static int findEvenDigitsInSum(long oddSum) {
+    public int findEvenDigitsInSum(long oddSum) {
         int evenDigitsCounter = 0;
 
         while (oddSum > 0) {
@@ -57,7 +58,7 @@ public class Task50 {
         return evenDigitsCounter;
     }
 
-    private static long calcFirstNum(int n) {
+    private long calcFirstNum(int n) {
         long num = 1;
 
         for (int i = 1; i < n; i++) {
@@ -67,7 +68,7 @@ public class Task50 {
         return num;
     }
 
-    private static boolean isOdd(long num) {
+    private boolean isOdd(long num) {
         boolean isOdd = true;
 
         while (num > 0) {

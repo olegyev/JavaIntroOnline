@@ -14,27 +14,28 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task35 {
     public static void main(String[] args) {
-        int a = generateRandomNum();
-        int b = generateRandomNum();
+        Task35 solution = new Task35();
+        int a = solution.generateRandomNum();
+        int b = solution.generateRandomNum();
 
-        int gcd = calcGcd(a, b);
-        int lcm = calcLcm(a, b);
+        int gcd = solution.calcGcd(a, b);
+        int lcm = solution.calcLcm(a, b);
 
         System.out.println("Greatest Common Divisor of " + a + " and " + b + " is " + gcd);
         System.out.println("Least Common Multiple of " + a + " and " + b + " is " + lcm);
     }
 
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (1 + (Math.random() * 100)); // от 1 до 100 включительно
     }
 
     // Least Common Multiple.
-    public static int calcLcm(int a, int b) {
+    public int calcLcm(int a, int b) {
         return a / calcGcd(a, b) * b;
     }
 
     // Greatest Common Divisor (в предыдущей задаче применил рекурсивный метод, здесь - итеративный).
-    public static int calcGcd(int a, int b) {
+    public int calcGcd(int a, int b) {
         int tmp = a % b;
         while (tmp != 0) {
             a = b;

@@ -12,21 +12,22 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task47 {
     public static void main(String[] args) {
-        int n = generateRandomNum();
+        Task47 solution = new Task47();
+        int n = solution.generateRandomNum();
         System.out.println("Prime pairs:");
         try {
-            findPrimePairs(n);
+            solution.findPrimePairs(n);
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }
     }
 
     // От 3 до 500 включительно.
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (3 + (Math.random() * 498));
     }
 
-    public static void findPrimePairs(int n) throws Exception {
+    public void findPrimePairs(int n) throws Exception {
         if (n < 3) {
             throw new Exception("Number is less than 3.");
         }
@@ -56,7 +57,7 @@ public class Task47 {
 
     }
 
-    private static boolean isPrime(int n) {
+    private boolean isPrime(int n) {
         boolean isPrime = true;
 
         for (int i = 2; i <= (n / 2); i++) {
@@ -69,7 +70,7 @@ public class Task47 {
         return isPrime;
     }
 
-    private static void printPrimePair(int a, int b) {
+    private void printPrimePair(int a, int b) {
         System.out.println("[" + a + ", " + b + "]");
     }
 }

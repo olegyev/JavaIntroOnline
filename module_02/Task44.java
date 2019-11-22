@@ -11,19 +11,20 @@ package by.yevstratyev.java_intro.module_02;
 
 public class Task44 {
     public static void main(String[] args) {
-        int num = generateRandomNum();
-        int[] digitsArray = createDigitsArray(num);
+        Task44 solution = new Task44();
+        int num = solution.generateRandomNum();
+        int[] digitsArray = solution.createDigitsArray(num);
 
         System.out.println("Number = " + num);
-        printDigitsArray(digitsArray);
+        solution.printDigitsArray(digitsArray);
     }
 
     // От 1 до 1.000.000 включительно.
-    public static int generateRandomNum() {
+    public int generateRandomNum() {
         return (int) (1 + Math.random() * 1_000_000);
     }
 
-    public static int[] createDigitsArray(int num) {
+    public int[] createDigitsArray(int num) {
         int[] digitsArray = new int[calcArrayLength(num)];
         for (int i = digitsArray.length - 1; i >= 0; i--, num /= 10) {
             digitsArray[i] = num % 10;
@@ -31,14 +32,14 @@ public class Task44 {
         return digitsArray;
     }
 
-    public static void printDigitsArray(int[] digitsArray) {
+    public void printDigitsArray(int[] digitsArray) {
         System.out.println("Digits:");
         for (int element : digitsArray) {
             System.out.print(element + " | ");
         }
     }
 
-    private static int calcArrayLength(int num) {
+    private int calcArrayLength(int num) {
         int counter = 0;
         for (int i = num; i > 0; i /= 10) {
             counter++;
