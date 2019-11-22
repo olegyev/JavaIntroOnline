@@ -24,7 +24,9 @@ public class Task13 {
                 input = reader.readLine();
             } while (input.isEmpty());
 
-            String theLongestWord = findLongestWord(input);
+            Task13 solution = new Task13();
+
+            String theLongestWord = solution.findLongestWord(input);
             System.out.println("The longest word is \"" + theLongestWord + "\". " +
                                "Its length is " + theLongestWord.length() + " letters.");
         } catch (IOException e) {
@@ -32,7 +34,7 @@ public class Task13 {
         }
     }
 
-    public static String findLongestWord(String string) {
+    public String findLongestWord(String string) {
         final int UP_LATIN_A = 65;
         final int UP_LATIN_Z = 90;
         final int LOW_LATIN_A = 97;

@@ -11,16 +11,17 @@ package by.yevstratyev.java_intro.module_03;
 
 public class Task15 {
     public static void main(String[] args) {
-        String string = "This is a string. How many sentences does it contain? Let's find out.";
+        String string = "This is a string. How many sentences does it contain? Let's find out!";
         System.out.println(string);
 
-        System.out.println("The string contains " + countSentences(string) + " sentences.");
+        Task15 solution = new Task15();
+        System.out.println("The string contains " + solution.countSentences(string) + " sentences.");
     }
 
     // Я не обрабатывал ситуации, когда предложение заканчивается многоточием (...), сочетанием вопросительного или восклицательного
     // знака с многоточием (?.. / !..), несколькими восклицательными (!!!) или вопросительными (???) знаками
     // или восклицательным и вопросительным знаком (!?), т.к. такие случаи исключены условиями задачи.
-    public static int countSentences(String string) {
+    public int countSentences(String string) {
         int sentencesCounter = 0;
 
         for (int i = 0; i < string.length(); i++) {

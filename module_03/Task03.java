@@ -15,13 +15,14 @@ public class Task03 {
         System.out.println(string);
 
         System.out.println("Number of digits in the string:");
-        int numOfDigits = countDigitsInString(string);
+        Task03 solution = new Task03();
+        int numOfDigits = solution.countDigitsInString(string);
         System.out.println(numOfDigits);
     }
 
     // Алгоритм подсчитывает только арабские цифры.
     // Метод Character.isDigit() счел возможным не использовать в обучающих целях.
-    public static int countDigitsInString(String string) {
+    public int countDigitsInString(String string) {
         final int ZERO = 0x0030;
         final int NINE = 0x0039;
 

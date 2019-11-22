@@ -10,15 +10,16 @@ package by.yevstratyev.java_intro.module_03;
 
 public class Task10 {
     public static void main(String[] args) {
+        Task10 solution = new Task10();
         System.out.println("Initial string:");
         String string = "Fb aw sas, aaaa: dddd - aa.";
         System.out.println(string);
 
-        System.out.println("The number of 'a' (with iteration): " + countIterChars(string, 'a'));
-        System.out.println("The number of 'a' (in line): " + countLineChars(string, "a"));
+        System.out.println("The number of 'a' (with iteration): " + solution.countIterChars(string, 'a'));
+        System.out.println("The number of 'a' (in line): " + solution.countLineChars(string, "a"));
     }
 
-    public static int countIterChars(String string, char toCount) {
+    public int countIterChars(String string, char toCount) {
         int numOfChars = 0;
 
         for (int i = 0; i < string.length(); i++) {
@@ -30,7 +31,7 @@ public class Task10 {
         return numOfChars;
     }
 
-    public static int countLineChars(String string, String toCount) {
+    public int countLineChars(String string, String toCount) {
         return string.length() - string.replace(toCount, "").length();
     }
 }

@@ -23,7 +23,8 @@ public class Task01 {
             System.out.println(element);
         }
 
-        convertCamelToSnake(strings);
+        Task01 solution = new Task01();
+        solution.convertCamelToSnake(strings);
 
         System.out.println("\nModified strings:");
         for (String element : strings) {
@@ -31,13 +32,13 @@ public class Task01 {
         }
     }
 
-    public static void convertCamelToSnake(String[] strings) {
+    public void convertCamelToSnake(String[] strings) {
         for (int i = 0; i < strings.length; i++) {
             strings[i] = modifyString(strings[i].toCharArray());
         }
     }
 
-    private static String modifyString(char[] chars) {
+    private String modifyString(char[] chars) {
         final int A = 65;
         final int Z = 90;
 
@@ -49,7 +50,7 @@ public class Task01 {
         return new String(chars);
     }
 
-    private static char[] modifyChars(char[] oldChars, int index) {
+    private char[] modifyChars(char[] oldChars, int index) {
         final int TO_LOWER_CASE = 32;
         char[] newChars = new char[oldChars.length + 1];
 

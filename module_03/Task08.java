@@ -10,16 +10,17 @@ package by.yevstratyev.java_intro.module_03;
 
 public class Task08 {
     public static void main(String[] args) {
+        Task08 solution = new Task08();
         String string = "radar";
 
-        if (isPalindrome(string)) {
+        if (solution.isPalindrome(string)) {
             System.out.println("The word \"" + string + "\" is a palindrome.");
         } else {
             System.out.println("The word \"" + string + "\" is not a palindrome.");
         }
     }
 
-    public static boolean isPalindrome(String string) {
+    public boolean isPalindrome(String string) {
         boolean isPalindrome = true;
         String toCheck = string.trim().toLowerCase();
 

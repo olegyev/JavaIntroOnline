@@ -10,17 +10,18 @@ package by.yevstratyev.java_intro.module_03;
 
 public class Task07 {
     public static void main(String[] args) {
+        Task07 solution = new Task07();
         System.out.println("Initial string:");
         String string = "aaaaa";
         System.out.println(string);
 
         System.out.println("A string modified with 'charAt':");
-        StringBuilder withCharAt = insertWithCharAt(string, 'a', 'b');
+        StringBuilder withCharAt = solution.insertWithCharAt(string, 'a', 'b');
         System.out.println(withCharAt);
 
         try {
             System.out.println("A string modified with 'indexOf':");
-            StringBuilder withIndexOf = insertWithIndexOf(string, "a", 'b');
+            StringBuilder withIndexOf = solution.insertWithIndexOf(string, "a", 'b');
             System.out.println(withIndexOf);
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -28,7 +29,7 @@ public class Task07 {
 
     }
 
-    public static StringBuilder insertWithCharAt(String string, char target, char replacement) {
+    public StringBuilder insertWithCharAt(String string, char target, char replacement) {
         StringBuilder sb = new StringBuilder(string);
 
         for (int i = 0; i < sb.length(); i++) {
@@ -40,7 +41,7 @@ public class Task07 {
         return sb;
     }
 
-    public static StringBuilder insertWithIndexOf(String string, String target, char replacement) throws Exception {
+    public StringBuilder insertWithIndexOf(String string, String target, char replacement) throws Exception {
         if (target.isEmpty()) {
             throw new Exception("Please indicate the character/-s to be replaced.");
         }

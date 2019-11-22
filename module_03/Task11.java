@@ -10,21 +10,22 @@ package by.yevstratyev.java_intro.module_03;
 
 public class Task11 {
     public static void main(String[] args) {
+        Task11 solution = new Task11();
         System.out.println("Initial string:");
         String string = "This is the initial string.";
         System.out.println(string);
 
         System.out.println("\nDouble chars string with iteration:");
-        System.out.println(doubleIterChars(string));
+        System.out.println(solution.doubleIterChars(string));
 
         System.out.println("\nDouble chars string with 'replaceAll' method:");
-        System.out.println(doubleReplaceChars(string));
+        System.out.println(solution.doubleReplaceChars(string));
 
         System.out.println("\nDouble chars string with 'substring' and 'repeat' methods:");
-        System.out.println(doubleRepeatChars(string));
+        System.out.println(solution.doubleRepeatChars(string));
     }
 
-    public static String doubleIterChars(String string) {
+    public String doubleIterChars(String string) {
         StringBuilder sb = new StringBuilder(string.length() * 2);
 
         for (int i = 0, j = 0; i < string.length(); i = (j - j / 2), j++) {
@@ -34,11 +35,11 @@ public class Task11 {
         return sb.toString();
     }
 
-    public static String doubleReplaceChars(String string) {
+    public String doubleReplaceChars(String string) {
         return string.replaceAll(".", "$0$0");
     }
 
-    public static String doubleRepeatChars(String string) {
+    public String doubleRepeatChars(String string) {
         StringBuilder sb = new StringBuilder(string.length() * 2);
 
         for (int i = 0; i < string.length(); i++) {

@@ -15,14 +15,15 @@ public class Task04 {
         System.out.println(string);
 
         System.out.println("Number of numbers in the string:");
-        int numOfNums = countNumsInString(string);
+        Task04 solution = new Task04();
+        int numOfNums = solution.countNumsInString(string);
         System.out.println(numOfNums);
     }
 
     // Алгоритм подсчитывает только числа, состоящие из арабских цифр.
     // В качестве разделителей для дробных чисел использованы знаки '.' и '/'.
     // Метод Character.isDigit() счел возможным не использовать в обучающих целях.
-    public static int countNumsInString(String string) {
+    public int countNumsInString(String string) {
         final int ZERO = 48;
         final int NINE = 57;
 

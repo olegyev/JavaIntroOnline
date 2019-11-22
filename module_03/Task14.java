@@ -22,14 +22,16 @@ public class Task14 {
                 input = reader.readLine();
             } while (input.isEmpty());
 
-            System.out.println("The number of lowercase letters is " + countLowCaseLetters(input) + ".");
-            System.out.println("The number of uppercase letters is " + countUpperCaseLetters(input) + ".");
+            Task14 solution = new Task14();
+
+            System.out.println("The number of lowercase letters is " + solution.countLowCaseLetters(input) + ".");
+            System.out.println("The number of uppercase letters is " + solution.countUpperCaseLetters(input) + ".");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static int countLowCaseLetters(String string) {
+    public int countLowCaseLetters(String string) {
         int lowLettersCounter = 0;
 
         for (int i = 0; i < string.length(); i++) {
@@ -42,7 +44,7 @@ public class Task14 {
         return lowLettersCounter;
     }
 
-    public static int countUpperCaseLetters(String string) {
+    public int countUpperCaseLetters(String string) {
         int upperLettersCounter = 0;
 
         for (int i = 0; i < string.length(); i++) {

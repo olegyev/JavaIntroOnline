@@ -11,24 +11,25 @@ package by.yevstratyev.java_intro.module_03;
 
 public class Task05 {
     public static void main(String[] args) {
+        Task05 solution = new Task05();
         System.out.println("Initial string:");
         String string = "     String   with    redundant spaces. It looks      bad.              ";
         System.out.println(string);
 
         System.out.println("\nFirst algorithm (avoid repeating sequences and concatenate) without trim:");
-        String firstAlg = avoidRepeatingSequences(string, ' ');
+        String firstAlg = solution.avoidRepeatingSequences(string, ' ');
         System.out.println(firstAlg);
         System.out.println("With trim:");
-        System.out.println(trim(firstAlg));
+        System.out.println(solution.trim(firstAlg));
 
         System.out.println("\nSecond algorithm (permute and cut repeating sequences) without trim:");
-        String secondAlg = cutRepeatingSequences(string, ' ');
+        String secondAlg = solution.cutRepeatingSequences(string, ' ');
         System.out.println(secondAlg);
         System.out.println("With trim:");
-        System.out.println(trim(secondAlg));
+        System.out.println(solution.trim(secondAlg));
 
         System.out.println("\nTrimmed initial string without removing repeating sequences:");
-        System.out.println(trim(string));
+        System.out.println(solution.trim(string));
     }
 
     // Первый алгоритм создает новый (изначально пустой) массив символов, куда копируется вся строка за исключением
@@ -36,7 +37,7 @@ public class Task05 {
     // в методе concat() создается много промежуточных массивов символов, ссылки на которые нельзя обнулить,
     // т.к. они указывают на возвращаемый ("сконкатенированный") массив. Собственно конкатенацию строк решил
     // не использовать, т.к. это слишком очевидный и не более эффективный вариант.
-    public static String avoidRepeatingSequences(String string, char target) {
+    public String avoidRepeatingSequences(String string, char target) {
         char[] chars = string.toCharArray();
         char[] newChars = {};
         int ctrl = 0;
@@ -63,7 +64,7 @@ public class Task05 {
     // Затем все эти лишние символы, переставленные в конец массива, обрезаются.
     // Главный недостаток (с учетом запрета на использование классов ArrayList и StringBuilder) -
     // довольно большое количество перестановок.
-    public static String cutRepeatingSequences(String string, char target) {
+    public String cutRepeatingSequences(String string, char target) {
         char[] chars = string.toCharArray();
         int ctrl = 0;
         int removedSpacesCounter = 0;
@@ -93,7 +94,7 @@ public class Task05 {
     }
 
     // Алгоритм для удаления "крайних" пробелов с обеих сторон строки.
-    public static String trim(String string) {
+    public String trim(String string) {
         char[] initChars = string.toCharArray();
         int firstIndex = 0;
         int lastIndex = initChars.length - 1;
@@ -121,7 +122,7 @@ public class Task05 {
         return new String(trimmedChars);
     }
 
-    private static char[] concat(char[] oldChars, char charToAdd, int index) {
+    private char[] concat(char[] oldChars, char charToAdd, int index) {
         char[] newChars = new char[index + 1];
 
         for (int i = 0; i < oldChars.length; i++) {
@@ -134,13 +135,13 @@ public class Task05 {
         return newChars;
     }
 
-    private static void swap(char[] chars, int i, int j) {
+    private void swap(char[] chars, int i, int j) {
         char tmp = chars[i];
         chars[i] = chars[j];
         chars[j] = tmp;
     }
 
-    private static char[] reduce(char[] oldChars, int removedSpacesCounter) {
+    private char[] reduce(char[] oldChars, int removedSpacesCounter) {
         char[] newChars = new char[oldChars.length - removedSpacesCounter];
 
         for (int i = 0; i < newChars.length; i++) {

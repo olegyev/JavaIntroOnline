@@ -22,17 +22,19 @@ public class Task12 {
                 input = reader.readLine();
             } while (input.isEmpty());
 
+            Task12 solution = new Task12();
+
             System.out.println("\nA string without spaces and repeated chars with StringBuilder:");
-            System.out.println(removeCharDuplicatesWithStrBuilder(removeSpaces(input)));
+            System.out.println(solution.removeCharDuplicatesWithStrBuilder(solution.removeSpaces(input)));
 
             System.out.println("\nA string without spaces and repeated chars with concatenation:");
-            System.out.println(removeCharDuplicatesWithConcat(removeSpaces(input)));
+            System.out.println(solution.removeCharDuplicatesWithConcat(solution.removeSpaces(input)));
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static String removeCharDuplicatesWithStrBuilder(String string) {
+    public String removeCharDuplicatesWithStrBuilder(String string) {
         StringBuilder noDuplicates = new StringBuilder();
 
         for (int i = 0; i < string.length(); i++) {
@@ -45,7 +47,7 @@ public class Task12 {
         return noDuplicates.toString();
     }
 
-    public static String removeCharDuplicatesWithConcat(String string) {
+    public String removeCharDuplicatesWithConcat(String string) {
         String noDuplicates = new String();
 
         for (int i = 0; i < string.length(); i++) {
@@ -57,7 +59,7 @@ public class Task12 {
         return noDuplicates;
     }
 
-    public static String removeSpaces(String string) {
+    public String removeSpaces(String string) {
         return string.replaceAll(" ", "");
     }
 }

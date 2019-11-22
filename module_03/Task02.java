@@ -14,9 +14,10 @@ public class Task02 {
         String string = "Wow! We have first word, second word and third word. These words are in this string.";
         System.out.println(string);
 
+        Task02 solution = new Task02();
         try {
             System.out.println("Modified string:");
-            string = replace(string, "word", "letter");
+            string = solution.replace(string, "word", "letter");
             System.out.println(string);
         } catch (Exception e) {
             System.err.println(e.getMessage());
@@ -24,7 +25,7 @@ public class Task02 {
     }
 
     // Алгоритм чувствителен к регистру.
-    public static String replace(String string, String target, String replacement) throws Exception {
+    public String replace(String string, String target, String replacement) throws Exception {
         if (target.isEmpty()) {
             throw new Exception("Please fill the string or indicate the character/-s to be replaced.");
         }
@@ -58,7 +59,7 @@ public class Task02 {
         return new String(allChars);
     }
 
-    private static char[] modifyChars(char[] oldAllChars, int trgCharsLength, char[] replChars, int firstIndex) {
+    private char[] modifyChars(char[] oldAllChars, int trgCharsLength, char[] replChars, int firstIndex) {
         char[] newAllChars;
 
         if (replChars.length > trgCharsLength) {

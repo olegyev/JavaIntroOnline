@@ -14,11 +14,12 @@ public class Task06 {
         String string = "   How many     spaces  do          we  have here   ?      ";
         System.out.println(string);
 
-        int maxSpacesSequenceLength = countSequences(string, ' ');
-        System.out.println("Maximum sequence of spaces has length " + maxSpacesSequenceLength);
+        Task06 solution = new Task06();
+        int maxSpacesSequenceLength = solution.countSequences(string, ' ');
+        System.out.println("Maximum sequence of spaces has length " + maxSpacesSequenceLength + ".");
     }
 
-    public static int countSequences(String string, char target) {
+    public int countSequences(String string, char target) {
         int repeatsCounter = 0;
         int ctrl = 0;
 
