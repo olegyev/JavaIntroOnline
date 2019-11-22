@@ -21,7 +21,8 @@ public class Task07 {
             System.out.print("Please enter the second angle: ");
             int angleTwo = Integer.parseInt(reader.readLine());
 
-            checkTriangle(angleOne, angleTwo);
+            Task07 solution = new Task07();
+            solution.checkTriangle(angleOne, angleTwo);
         } catch (NumberFormatException e) {
             System.err.print("Error! Only integers can be entered!");
         } catch (IOException e) {
@@ -29,7 +30,7 @@ public class Task07 {
         }
     }
 
-    public static void checkTriangle(int angleOne, int angleTwo) {
+    public void checkTriangle(int angleOne, int angleTwo) {
         if (angleOne > 0 && angleTwo > 0 && (angleOne + angleTwo) < 180) {
             System.out.println("Triangle exists");
             if (angleOne == 90 || angleTwo == 90 || (angleOne + angleTwo) == 90) {

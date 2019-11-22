@@ -20,6 +20,7 @@ public class Task19 {
         long numOne;
         long numTwo;
         boolean flag = false;
+        Task19 solution = new Task19();
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.print("Please enter first number (whole number): ");
@@ -43,7 +44,7 @@ public class Task19 {
                             isZero = true;
                             break;
                         } else {
-                            collectDigits(digit);
+                            solution.collectDigits(digit);
                             flag = true;
                             break;
                         }
@@ -62,7 +63,7 @@ public class Task19 {
             } else if (!isZero && !flag) {
                 System.out.println("there are no duplicate digits");
             } else {
-                sortInAscendingOrder(minDigitsSeries);
+                solution.sortInAscendingOrder(minDigitsSeries);
             }
 
         } catch (NumberFormatException e) {
@@ -73,7 +74,7 @@ public class Task19 {
     }
 
     // Метод собирает повторяющиеся цифры в одном числе без дублирования.
-    private static void collectDigits(byte digit) {
+    private void collectDigits(byte digit) {
         while (true) {
             byte check = (byte) (minDigitsSeries % 10);
             if (check != digit) {
@@ -86,7 +87,7 @@ public class Task19 {
 
     // Метод для сортировки повторяющихся цифр, собранных в одном числе в предыдущем методе,
     // в возрастающем порядке.
-    private static void sortInAscendingOrder(int minDigitsSeries) {
+    private void sortInAscendingOrder(int minDigitsSeries) {
         if (isZero) {
             System.out.print(0 + " | ");
         }
@@ -112,7 +113,7 @@ public class Task19 {
 
     // Метод для изъятия выведенной на консоль цифры из числа,
     // содержащего повторяющиеся цифры.
-    private static int reduceNumber(int minDigitsSeries, byte digit) {
+    private int reduceNumber(int minDigitsSeries, byte digit) {
         int newNumber = 0;
         while (minDigitsSeries > 0) {
             byte check = (byte) (minDigitsSeries % 10);

@@ -19,7 +19,8 @@ public class Task05 {
         System.out.print("Enter seconds (negative numbers will be formatted): ");
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int t = Integer.parseInt(reader.readLine());
-            convertAndPrintTime(Math.abs(t));
+            Task05 solution = new Task05();
+            solution.convertAndPrintTime(Math.abs(t));
         } catch (NumberFormatException e) {
             System.err.print("Error! Only an integer can be entered!");
         } catch (IOException e) {
@@ -27,7 +28,7 @@ public class Task05 {
         }
     }
 
-    public static void convertAndPrintTime(int sec) {
+    public void convertAndPrintTime(int sec) {
         int hours = sec / (60 * 60);
         int minutes = (sec / 60) - (hours * 60); // также можно: (sec - 60 * 60 * hours) / 60;
         int seconds = sec % 60;
