@@ -1,2 +1,2 @@
 # JavaIntroOnline
-Oleg Yevstratyev's tasks solutions
+EPAM online course tasks solutions
