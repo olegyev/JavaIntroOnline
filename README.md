@@ -1,2 +1,2 @@
 # Java Intro Online
-EPAM online course tasks solutions
+EPAM online course tasks solutions.
